@@ -106,6 +106,12 @@
   *, *:before, *:after {
     box-sizing: border-box;
   }
+  /* Clear the float to avoid layout issues */
+.header-container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
   
   html {
   scroll-behavior: smooth;
@@ -337,23 +343,25 @@
 /* Navbar
       ============================= */
 
-      .navbar-menu {
-        margin-top: 10px; /*align the text on the same line with logo*/
-      }
+.navbar-menu {
+display: flex;
+margin-top: 10px; /*align the text on the same line with logo*/
+text-align: right;
+margin-right: 20px; /* Add some space between the menu and the logo */
+
+
+}
 
       .nav {
         display: flex;
-        padding: 50;
+        padding: 100;
         list-style: none;
         text-align: center;
-        margin: 5%;
+        list-style: none;
 
-        list-style: none;
-        padding: 0;
         margin: 0;
-        display: flex;
-        justify-content: center;
-        list-style: none;
+      
+ 
       }
       
       .nav .nav-item {
@@ -366,8 +374,10 @@
       .nav .nav-link {
         display: block;
         padding: 0.5rem 0;
-        position: relative;
+       
         color: #efeded;
+        margin-left: 0px;
+
       }
       
       .nav .nav-link:hover, .nav-link:active {
@@ -375,6 +385,14 @@
         color: var(--nav-item-link-hover);
         text-decoration: none;
       }
+
+/* Add the following CSS to position the menu links to the right */
+.navbar-menu ul.nav {
+  float: right;
+  margin-right: 20px; /* Add some right margin for spacing */
+}
+
+
 
 /* Hover and active styles for links */
 .nav-link:hover,
@@ -444,9 +462,10 @@
     background-repeat: no-repeat;
     background-position: var(--button-padding);
     display: flex; /* The display property is set to flex */
-    justify-content: space-between; /* Added justify-content property with value space-between */
+    
     align-items: center; /* Added align-items property with value center */
     flex-wrap: nowrap; 
+    
   }
 
 
@@ -592,7 +611,7 @@ text-align: center;
   
 .header-contact {
     /*background-position: center;*/
-    text-align: center;
+    text-align: left;
     align-items: center; /* Added align-items property with value center */
     max-width: 1000px;
 
@@ -617,7 +636,7 @@ background-position: center;
 
 align-items: center; /* Added align-items property with value center */
 color: #071629;
-text-align: center;
+text-align: left;
 font-family: SourceSansPro;
 font-size: 32px;
 font-style: normal;
@@ -639,33 +658,214 @@ position: relative;
     flex-direction: column;
 }
 
+/*Call to action button - contact form*/
 .header-container-contact-form {
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    width: 700px;
-    height: 400px;
-    flex-shrink: 0; 
-    justify-content: center; /* Added justify-content property with value space-between */
-    align-items: center; /* Added align-items property with value center */
-    margin: auto;
+      
+  display: flex;
+  flex-direction: column;  
+  width: 335px;
+  height: 373px;
+  flex-shrink: 0; 
+  justify-content: center; /* Added justify-content property with value space-between */
+  align-items: center; /* Added align-items property with value center */
+  width: 600px;
+  height: 500px;
+  flex-shrink: 0; 
+  margin: auto;
+  padding: 10px; /* Add some padding to the form container */
+   
 }
 
 form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    text-align: left;
+    
+    
     width: 650%;
     max-width: 600px; /* Adjust the maximum width of the form as needed */
+    align-items: left; /* Align form items to the left */
 }
 
 label {
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 5px;
+    text-align: left; /* Align labels to the left */
 }
+
+
+
+/*contact us*/
+  
+.header-contact {
+  /*background-position: center;*/
+  align-items: center; /* Added align-items property with value center */
+
+  padding: var(--header-padding);
+  position: relative;
+  /*background: linear-gradient(180deg, #D8D8D8 0%, rgba(216, 216, 216, 0) 100%);*/
+  border: 1px solid #979797;
+ 
+  height: 500px;
+}
+
+
+.button {
+      display: block;
+      margin: 2rem auto;
+    }
+
+    .button-background {
+      width: 220px;
+      height: 55px;
+    }
+
+    .call-to-action {
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+      font-size: 18px;
+      line-height: 60px;
+    }
+    
+
+
+
+    
+
+/*Contact us new 29/7/2023 start*/
+
+.container-contact-form {
+  width: 335px;
+  height: 373px;
+  flex-shrink: 0;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  
+}
+
+.container-contact-form form {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.container-contact-form label {
+  width: 100%;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.container-contact-form input[type="text"],
+.container-contact-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.container-contact-form input[type="submit"] {
+  width: 200%;
+  
+  border: none;
+  border-radius: 4px;
+  background-color: #FF6565;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  border-radius: 22px;
+  padding: 12px 20px;
+
+}
+
+.container-contact-form input[type="submit"]:hover {
+  background-color: #f5d56d;
+}
+
+.text-heading-works h5 {
+  text-align: center;
+}
+
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  display: flex;
+  /*background-color: #04AA6D;*/
+  background-color: #FF6565;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  
+  cursor: pointer;
+
+
+
+    width: 200px;
+    height: 35px;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    background-color: #FF6565;
+    border-radius: 22px;
+
+    border: none;
+ 
+    font-size: 17px;
+    font-family: Raleway;
+  
+
+
+
+  justify-content: center;
+  align-items: center;
+}
+
+input[type=submit]:hover {
+  background-color: #a0459e;
+}
+
+.container-contact-form {
+  width: 335px;
+  height: 373px;
+  flex-shrink: 0;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+  /* Hover and active styles for button */
+  .button-background-contact:hover {
+    opacity: 0.9;
+}
+
+
+/*Contact us new 29/7/2023 end*/
+
+
+
 
 
 
